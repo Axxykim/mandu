@@ -52,7 +52,7 @@ body {
 .cy-left { flex: 1 1 220px; min-width: 0; }
 .cy-right { flex: 3 1 300px; min-width: 0; }
 
-/* 미니룸 */
+/* 미니룸 (안경만두 캐릭터로 꽉 채움) */
 .miniroom {
   position: relative;
   height: 180px;
@@ -60,26 +60,18 @@ body {
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 10px;
+  background: linear-gradient(#fbe7ef 0%, #f7d8e6 56%, #efd2b0 56%, #e6c096 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
-.miniroom-wall {
-  position: absolute; inset: 0 0 35% 0;
-  background: linear-gradient(#fbe7ef, #f6d4e2);
+.mandu-pair {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 2px; width: 100%; height: 100%; padding: 8px 6px 4px;
 }
-.miniroom-floor {
-  position: absolute; inset: 65% 0 0 0;
-  background: linear-gradient(#e8c9a0, #d8b389);
-}
-.furni { position: absolute; }
-.furni.window { top: 14px; left: 22px; font-size: 30px; }
-.furni.frame  { top: 18px; right: 26px; font-size: 24px; }
-.furni.plant  { bottom: 6px; left: 10px; font-size: 26px; }
-.furni.rug    { bottom: 4px; left: 50%; transform: translateX(-50%); font-size: 34px; opacity: 0.7; }
-.furni.cat    { bottom: 8px; right: 16px; font-size: 22px; }
-
-.minimi { position: absolute; bottom: 22px; font-size: 38px; }
-.minimi-1 { left: 36%; }
-.minimi-2 { left: 50%; animation: bob 1.8s ease-in-out infinite; }
-@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.mandu { width: 50%; height: 100%; }
+.mandu-2 { animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
 .heart-float {
   position: absolute; left: 47%; bottom: 60px; font-size: 16px;

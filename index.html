@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#4a89c7" />
 
   <!-- 캐시 무효화: 수정할 때마다 ?v=N 숫자를 올리세요 -->
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
   <div class="cy-frame">
@@ -28,16 +28,78 @@
       <!-- 왼쪽: 미니룸 + 프로필 -->
       <aside class="cy-left">
         <div class="miniroom">
-          <div class="miniroom-wall"></div>
-          <div class="miniroom-floor"></div>
-          <span class="furni window">🪟</span>
-          <span class="furni frame">🖼️</span>
-          <span class="furni plant">🪴</span>
-          <span class="furni rug">🟫</span>
-          <span class="furni cat">🐱</span>
-          <span class="minimi minimi-1">🧑</span>
-          <span class="minimi minimi-2">👧</span>
           <span class="heart-float">❤️</span>
+          <div class="mandu-pair">
+            <!-- 안경만두 (남자느낌) -->
+            <svg class="mandu mandu-1" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="안경만두 남자">
+              <!-- 만두 몸통 -->
+              <ellipse cx="60" cy="74" rx="46" ry="40" fill="#f7e8c6" stroke="#e3c48d" stroke-width="2.5"/>
+              <!-- 만두 주름(윗부분) -->
+              <g fill="#f7e8c6" stroke="#e3c48d" stroke-width="2.5">
+                <ellipse cx="26" cy="42" rx="11" ry="15"/>
+                <ellipse cx="43" cy="38" rx="11" ry="16"/>
+                <ellipse cx="60" cy="36" rx="11" ry="16"/>
+                <ellipse cx="77" cy="38" rx="11" ry="16"/>
+                <ellipse cx="94" cy="42" rx="11" ry="15"/>
+              </g>
+              <!-- 눈썹 (직선, 남자느낌) -->
+              <path d="M30 55 L50 53 M70 53 L90 55" stroke="#8a6a3a" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <!-- 안경 (사각 프레임) -->
+              <g stroke="#46566b" stroke-width="3" fill="#ffffff" fill-opacity="0.5">
+                <rect x="27" y="61" width="27" height="20" rx="5"/>
+                <rect x="66" y="61" width="27" height="20" rx="5"/>
+              </g>
+              <line x1="54" y1="70" x2="66" y2="70" stroke="#46566b" stroke-width="3"/>
+              <!-- 눈 -->
+              <circle cx="40" cy="71" r="3.6" fill="#3a3a3a"/>
+              <circle cx="80" cy="71" r="3.6" fill="#3a3a3a"/>
+              <!-- 입 -->
+              <path d="M51 91 Q60 98 69 91" stroke="#b5793f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <!-- 파란 보타이 -->
+              <g fill="#5a86c9">
+                <path d="M60 105 L46 98 L46 112 Z"/>
+                <path d="M60 105 L74 98 L74 112 Z"/>
+              </g>
+              <circle cx="60" cy="105" r="3.5" fill="#3f6bb0"/>
+            </svg>
+
+            <!-- 안경만두 (여자느낌) -->
+            <svg class="mandu mandu-2" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="안경만두 여자">
+              <!-- 분홍 리본 -->
+              <g fill="#ff8fab">
+                <path d="M60 22 L45 14 L47 31 Z"/>
+                <path d="M60 22 L75 14 L73 31 Z"/>
+              </g>
+              <circle cx="60" cy="22" r="4" fill="#f56a90"/>
+              <!-- 만두 몸통 -->
+              <ellipse cx="60" cy="74" rx="46" ry="40" fill="#f7e8c6" stroke="#e3c48d" stroke-width="2.5"/>
+              <!-- 만두 주름(윗부분) -->
+              <g fill="#f7e8c6" stroke="#e3c48d" stroke-width="2.5">
+                <ellipse cx="26" cy="42" rx="11" ry="15"/>
+                <ellipse cx="43" cy="38" rx="11" ry="16"/>
+                <ellipse cx="60" cy="36" rx="11" ry="16"/>
+                <ellipse cx="77" cy="38" rx="11" ry="16"/>
+                <ellipse cx="94" cy="42" rx="11" ry="15"/>
+              </g>
+              <!-- 볼터치 -->
+              <ellipse cx="27" cy="84" rx="6.5" ry="4.5" fill="#ffb3c6" fill-opacity="0.85"/>
+              <ellipse cx="93" cy="84" rx="6.5" ry="4.5" fill="#ffb3c6" fill-opacity="0.85"/>
+              <!-- 속눈썹 -->
+              <path d="M30 62 l-5 -3 M28 66 l-6 -2" stroke="#3a3a3a" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M90 62 l5 -3 M92 66 l6 -2" stroke="#3a3a3a" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- 안경 (동그란 분홍 프레임) -->
+              <g stroke="#e87aa3" stroke-width="3" fill="#ffffff" fill-opacity="0.5">
+                <circle cx="40" cy="71" r="13"/>
+                <circle cx="80" cy="71" r="13"/>
+              </g>
+              <path d="M53 71 Q60 67 67 71" stroke="#e87aa3" stroke-width="3" fill="none"/>
+              <!-- 눈 -->
+              <circle cx="40" cy="71" r="3.6" fill="#3a3a3a"/>
+              <circle cx="80" cy="71" r="3.6" fill="#3a3a3a"/>
+              <!-- 입 -->
+              <path d="M53 92 Q60 97 67 92" stroke="#d46a8a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
         </div>
 
         <div class="profile-box">
