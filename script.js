@@ -67,6 +67,10 @@ $("ddayText").textContent = `D+${n}`;
 $("sinceText").textContent =
   START_DATE.toLocaleDateString("ko-KR", { year: "numeric", month: "long", day: "numeric" }) + " 부터";
 
+// 다음 100일 단위 기념일까지 카운트다운
+const nextHundred = (Math.floor(n / 100) + 1) * 100;
+$("milestoneText").textContent = `${nextHundred}일까지 ${nextHundred - n}일 남았어요!`;
+
 // ---------- 탭 전환 ----------
 document.querySelectorAll(".cy-tabs .tab").forEach(tab => {
   tab.addEventListener("click", () => {

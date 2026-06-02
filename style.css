@@ -101,6 +101,7 @@ body {
 .dday-line { font-size: 15px; margin-bottom: 8px; }
 .dday-line b { color: #e63946; font-size: 18px; }
 .meta { list-style: none; font-size: 12px; line-height: 1.9; color: #4a6b87; }
+.milestone { margin-top: 8px; font-size: 12px; font-weight: bold; color: #e6398c; }
 
 /* 탭 */
 .cy-tabs { display: flex; border-bottom: 2px solid #4a89c7; margin-bottom: 10px; flex-wrap: wrap; }
