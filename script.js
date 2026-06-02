@@ -8,7 +8,7 @@ const GB_LIMIT = 50;    // 방명록 최신 50개만 표시
 // 🎵 BGM 곡 목록 — 유튜브 영상 ID로 교체하세요 (주소의 v= 뒤 부분)
 const SONGS = [
   { title: "우리 노래 ❤️", id: "rgcX5Fi6tOA" },
-  { title: "Anyone - Justin Bieber 🎶", id: "KIK3azN4w34" },
+  { title: "추천 노래 🎶", id: "KIK3azN4w34" },
 ];
 
 // ▼▼▼ Firebase 설정: Firebase 콘솔에서 복사해서 붙여넣으세요 ▼▼▼
