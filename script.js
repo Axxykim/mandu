@@ -89,8 +89,14 @@ bgmList.innerHTML = SONGS.map((s, i) => `<button data-i="${i}">♪ ${escapeHtml(
 if (SONGS.length) playSong(0, false);
 
 // ---------- 렌더 헬퍼 ----------
+// 이름에 맞는 안경만두 사진: 은수만두(여자) / 그냥만두(남자). 옛 글(자기야/나)도 처리.
+function manduImg(name) {
+  const female = /은수/.test(name) || name === "자기야" || name === "👧";
+  const src = female ? "mandu-f.png?v=1" : "mandu-m.png?v=1";
+  return `<img class="name-mandu" src="${src}" alt="${escapeHtml(name)}" />`;
+}
 function diaryEntryHtml(d, id) {
-  const meta = `${escapeHtml(d.when || "")}${d.author ? " · " + escapeHtml(d.author) + " " + (d.avatar || "") : ""}`;
+  const meta = `${escapeHtml(d.when || "")}${d.author ? " · " + manduImg(d.author) + escapeHtml(d.author) : ""}`;
   const actions = id ? `
     <div class="entry-actions">
       <button data-act="edit" data-id="${id}">수정</button>
@@ -107,7 +113,7 @@ function diaryEntryHtml(d, id) {
 function gbEntryHtml(g) {
   return `
     <div class="gb-entry">
-      <div class="avatar">${g.avatar || "🙂"}</div>
+      <div class="avatar">${manduImg(g.name)}</div>
       <div class="gb-content">
         <div class="gb-name">${escapeHtml(g.name)}<span class="when">${escapeHtml(g.when || "")}</span></div>
         <div class="gb-text">${escapeHtml(g.text)}</div>

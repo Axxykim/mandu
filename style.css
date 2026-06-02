@@ -228,7 +228,14 @@ body {
   display: flex; gap: 8px;
   border-bottom: 1px dotted #cdddec; padding: 8px 2px;
 }
-.gb-entry .avatar { font-size: 22px; }
+.gb-entry .avatar { font-size: 22px; display: flex; align-items: center; }
+
+/* 이름 옆 안경만두 사진 */
+.name-mandu {
+  width: 16px; height: 16px; object-fit: contain;
+  image-rendering: pixelated; vertical-align: middle; margin-right: 3px;
+}
+.gb-entry .avatar .name-mandu { width: 32px; height: 32px; margin-right: 0; }
 .gb-entry .gb-content { flex: 1; min-width: 0; }
 .gb-entry .gb-name { font-weight: bold; font-size: 12px; }
 .gb-entry .gb-name .when { font-weight: normal; color: #8aa6bd; font-size: 10px; margin-left: 6px; }
