@@ -7,7 +7,7 @@ const GB_LIMIT = 50;    // 방명록 최신 50개만 표시
 
 // 🎵 BGM 곡 목록 — 유튜브 영상 ID로 교체하세요 (주소의 v= 뒤 부분)
 const SONGS = [
-  { title: "우리 노래 ❤️", id: "dQw4w9WgXcQ" },
+  { title: "우리 노래 ❤️", id: "rgcX5Fi6tOA" },
   { title: "추억의 BGM 🎶", id: "9bZkp7q19f0" },
 ];
 
