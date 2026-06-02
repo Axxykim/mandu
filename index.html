@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="mandu-m.png?v=1" />
 
   <!-- 캐시 무효화: 수정할 때마다 ?v=N 숫자를 올리세요 -->
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
   <div class="cy-frame">
@@ -153,6 +153,16 @@
     <footer class="cy-footer">made with ❤️ · 우리 미니홈피</footer>
   </div>
 
-  <script type="module" src="script.js?v=10"></script>
+  <!-- 100일 단위 기념일 당일 축하 팝업 -->
+  <div id="celebrate" class="celebrate-overlay" hidden>
+    <div class="celebrate-box">
+      <div class="celebrate-emoji">🎉🥟🎉</div>
+      <h2 class="celebrate-title">오늘 우리 <span id="celebrateDays">100</span>일! 💖</h2>
+      <p class="celebrate-msg">그냥만두 ❤️ 은수만두<br>축하해! 오늘도 많이 사랑하자 🥰</p>
+      <button id="celebrateClose" class="celebrate-close">닫기</button>
+    </div>
+  </div>
+
+  <script type="module" src="script.js?v=11"></script>
 </body>
 </html>

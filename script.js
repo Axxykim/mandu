@@ -71,6 +71,15 @@ $("sinceText").textContent =
 const nextHundred = (Math.floor(n / 100) + 1) * 100;
 $("milestoneText").textContent = `${nextHundred}일까지 ${nextHundred - n}일 남았어요!`;
 
+// 딱 100·200·300일… 당일이면 축하 팝업 (URL 끝에 ?celebrate 붙이면 미리보기 가능)
+const forceCelebrate = location.search.includes("celebrate");
+if (n % 100 === 0 || forceCelebrate) {
+  $("celebrateDays").textContent = (n % 100 === 0) ? n : nextHundred;
+  $("celebrate").hidden = false;
+}
+$("celebrateClose").addEventListener("click", () => { $("celebrate").hidden = true; });
+$("celebrate").addEventListener("click", (e) => { if (e.target.id === "celebrate") $("celebrate").hidden = true; });
+
 // ---------- 탭 전환 ----------
 document.querySelectorAll(".cy-tabs .tab").forEach(tab => {
   tab.addEventListener("click", () => {
