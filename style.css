@@ -1,0 +1,258 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { max-width: 100%; overflow-x: hidden; }
+
+body {
+  font-family: "Dotum", "돋움", "Gulim", "굴림", "Apple SD Gothic Neo", sans-serif;
+  font-size: 13px;
+  -webkit-text-size-adjust: 100%;
+  color: #2a4d69;
+  background: #cfe0ef;
+  background-image: radial-gradient(circle at 20% 20%, #e3eef8 0, transparent 60%);
+  min-height: 100vh;
+  min-height: 100dvh; /* 모바일 브라우저 주소창 높이 대응 */
+  /* 아이폰 노치/홈바 안전영역까지 여백 확보 */
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+           max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* 전체 미니홈피 프레임 */
+.cy-frame {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border: 1px solid #7fa8cc;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(42, 77, 105, 0.25);
+}
+
+/* 상단 바 */
+.cy-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: linear-gradient(#6fa8dc, #4a89c7);
+  color: #fff;
+}
+.cy-logo {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+.cy-topbar-menu { font-size: 11px; opacity: 0.9; }
+
+/* 본문 2단 레이아웃 (넓으면 좌우, 좁으면 위아래로 자동 전환) */
+.cy-body { display: flex; flex-wrap: wrap; padding: 12px; gap: 12px; }
+.cy-left { flex: 1 1 220px; min-width: 0; }
+.cy-right { flex: 3 1 300px; min-width: 0; }
+
+/* 미니룸 */
+.miniroom {
+  position: relative;
+  height: 180px;
+  border: 1px solid #9bbcd8;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.miniroom-wall {
+  position: absolute; inset: 0 0 35% 0;
+  background: linear-gradient(#fbe7ef, #f6d4e2);
+}
+.miniroom-floor {
+  position: absolute; inset: 65% 0 0 0;
+  background: linear-gradient(#e8c9a0, #d8b389);
+}
+.furni { position: absolute; }
+.furni.window { top: 14px; left: 22px; font-size: 30px; }
+.furni.frame  { top: 18px; right: 26px; font-size: 24px; }
+.furni.plant  { bottom: 6px; left: 10px; font-size: 26px; }
+.furni.rug    { bottom: 4px; left: 50%; transform: translateX(-50%); font-size: 34px; opacity: 0.7; }
+.furni.cat    { bottom: 8px; right: 16px; font-size: 22px; }
+
+.minimi { position: absolute; bottom: 22px; font-size: 38px; }
+.minimi-1 { left: 36%; }
+.minimi-2 { left: 50%; animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+.heart-float {
+  position: absolute; left: 47%; bottom: 60px; font-size: 16px;
+  animation: heartFloat 2.4s ease-in-out infinite;
+}
+@keyframes heartFloat {
+  0%   { transform: translateY(0) scale(0.8); opacity: 0; }
+  40%  { opacity: 1; }
+  100% { transform: translateY(-28px) scale(1.2); opacity: 0; }
+}
+
+/* 프로필 박스 */
+.profile-box { border: 1px solid #9bbcd8; border-radius: 4px; }
+.today-total {
+  display: flex; justify-content: space-around;
+  background: #eef5fb; padding: 6px 4px;
+  border-bottom: 1px dashed #9bbcd8; font-size: 11px;
+}
+.today-total b { color: #4a89c7; }
+.today-total span:first-child b#today { color: #e63946; }
+.profile-info { padding: 10px; }
+.owner { margin-bottom: 6px; }
+.dday-line { font-size: 15px; margin-bottom: 8px; }
+.dday-line b { color: #e63946; font-size: 18px; }
+.meta { list-style: none; font-size: 12px; line-height: 1.9; color: #4a6b87; }
+
+/* 탭 */
+.cy-tabs { display: flex; border-bottom: 2px solid #4a89c7; margin-bottom: 10px; flex-wrap: wrap; }
+.cy-tabs a {
+  padding: 6px 14px; font-size: 12px; cursor: pointer;
+  border: 1px solid #9bbcd8; border-bottom: none;
+  background: #eef5fb; margin-right: 3px; border-radius: 4px 4px 0 0;
+  color: #4a6b87; user-select: none;
+}
+.cy-tabs a.active { background: #4a89c7; color: #fff; font-weight: bold; }
+
+/* 탭 패널 전환 */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* 기분 */
+.mood-rows { display: flex; flex-direction: column; gap: 8px; }
+.mood-row {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid #dbe7f2; border-radius: 4px; padding: 6px 8px; background: #fafdff;
+}
+.mood-label { font-size: 12px; font-weight: bold; min-width: 64px; }
+.mood-current { font-size: 22px; min-width: 28px; text-align: center; }
+.mood-pick { margin-left: auto; display: flex; gap: 4px; }
+.mood-pick button {
+  border: 1px solid #cdddec; border-radius: 50%; width: 32px; height: 32px;
+  font-size: 16px; cursor: pointer; background: #fff;
+}
+.mood-pick button:active { transform: scale(0.9); }
+.mood-pick button.chosen { background: #ffe2ec; border-color: #ff9ab5; }
+
+/* BGM */
+.bgm-list { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.bgm-list button {
+  border: 1px solid #cdddec; border-radius: 14px; padding: 4px 10px; cursor: pointer;
+  background: #eef5fb; font-family: inherit; font-size: 11px; color: #4a6b87;
+}
+.bgm-list button.playing { background: #4a89c7; color: #fff; border-color: #4a89c7; }
+.bgm-player iframe { border-radius: 4px; }
+
+/* 다이어리 수정/삭제 + 무한스크롤 */
+.diary-entry .entry-actions { margin-top: 6px; display: flex; gap: 6px; }
+.diary-entry .entry-actions button {
+  border: 1px solid #cdddec; background: #eef5fb; color: #4a6b87;
+  border-radius: 4px; padding: 2px 8px; font-size: 11px; cursor: pointer; font-family: inherit;
+}
+.diary-sentinel { height: 1px; }
+
+/* 패널 (다이어리 / 방명록) */
+.panel { margin-bottom: 16px; }
+.panel-title {
+  font-size: 13px; color: #2a4d69; margin-bottom: 8px;
+  padding-bottom: 4px; border-bottom: 1px dashed #9bbcd8;
+}
+
+/* 다이어리 */
+.diary-entry {
+  border: 1px solid #dbe7f2; border-radius: 4px;
+  padding: 8px 10px; margin-bottom: 8px; background: #fafdff;
+}
+.diary-entry .date { font-size: 11px; color: #8aa6bd; margin-bottom: 4px; }
+.diary-entry .title { font-weight: bold; margin-bottom: 4px; overflow-wrap: anywhere; }
+.diary-entry .body { line-height: 1.6; color: #3a5a75; overflow-wrap: anywhere; white-space: pre-wrap; }
+
+/* 다이어리 글쓰기 폼 */
+.diary-form {
+  border: 1px solid #dbe7f2; border-radius: 4px;
+  padding: 8px; margin-bottom: 10px; background: #fafdff;
+}
+.diary-form-row { display: flex; gap: 4px; margin-bottom: 6px; }
+.diary-form select {
+  border: 1px solid #9bbcd8; border-radius: 4px; padding: 4px;
+  font-family: inherit; font-size: 12px; color: #2a4d69; background: #fff;
+}
+.diary-form input,
+.diary-form textarea {
+  width: 100%; border: 1px solid #9bbcd8; border-radius: 4px;
+  padding: 6px 8px; font-family: inherit; font-size: 13px; color: #2a4d69;
+  resize: vertical;
+}
+.diary-form input:focus,
+.diary-form textarea:focus { outline: none; border-color: #4a89c7; }
+.diary-form input { flex: 1; min-width: 0; }
+.diary-form textarea { margin-bottom: 6px; }
+.diary-form button {
+  border: none; border-radius: 4px; padding: 6px 14px; cursor: pointer;
+  background: linear-gradient(#6fa8dc, #4a89c7); color: #fff;
+  font-family: inherit; font-size: 12px; font-weight: bold;
+}
+.diary-form button:active { transform: scale(0.97); }
+.diary-form button:disabled { opacity: 0.5; cursor: default; }
+
+/* "더 보기" 버튼 */
+.more-btn {
+  display: block; width: 100%; margin-top: 4px; padding: 8px;
+  border: 1px solid #9bbcd8; border-radius: 4px; cursor: pointer;
+  background: #eef5fb; color: #4a6b87; font-family: inherit; font-size: 12px;
+}
+.more-btn:active { background: #dceaf6; }
+.more-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* 방명록 글쓰기 폼 */
+.gb-form { display: flex; gap: 4px; margin-bottom: 10px; }
+.gb-form select {
+  border: 1px solid #9bbcd8; border-radius: 4px; padding: 4px;
+  font-family: inherit; font-size: 12px; color: #2a4d69; background: #fff;
+}
+.gb-form input {
+  flex: 1; min-width: 0; border: 1px solid #9bbcd8; border-radius: 4px;
+  padding: 6px 8px; font-family: inherit; font-size: 13px; color: #2a4d69;
+}
+.gb-form input:focus { outline: none; border-color: #4a89c7; }
+.gb-form button {
+  border: none; border-radius: 4px; padding: 6px 12px; cursor: pointer;
+  background: linear-gradient(#6fa8dc, #4a89c7); color: #fff;
+  font-family: inherit; font-size: 12px; font-weight: bold; white-space: nowrap;
+}
+.gb-form button:active { transform: scale(0.96); }
+.gb-form button:disabled { opacity: 0.5; cursor: default; }
+
+.gb-status { font-size: 11px; color: #c47b00; margin-bottom: 8px; min-height: 1em; }
+
+/* 방명록 */
+.gb-entry {
+  display: flex; gap: 8px;
+  border-bottom: 1px dotted #cdddec; padding: 8px 2px;
+}
+.gb-entry .avatar { font-size: 22px; }
+.gb-entry .gb-content { flex: 1; min-width: 0; }
+.gb-entry .gb-name { font-weight: bold; font-size: 12px; }
+.gb-entry .gb-name .when { font-weight: normal; color: #8aa6bd; font-size: 10px; margin-left: 6px; }
+.gb-entry .gb-text { line-height: 1.6; margin-top: 2px; color: #3a5a75; overflow-wrap: anywhere; }
+
+/* 푸터 */
+.cy-footer {
+  text-align: center; font-size: 11px; color: #6f8aa3;
+  padding: 10px; background: #eef5fb; border-top: 1px solid #cdddec;
+}
+
+/* 좁은 화면(아이폰 등): 위아래 한 줄로 쌓기 */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right))
+             max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  }
+  .cy-body { flex-direction: column; }
+  /* 아이폰에서 입력창 누를 때 화면이 확대되는 것 방지 (16px 이상이면 안 됨) */
+  .diary-form input, .diary-form textarea, .diary-form select,
+  .gb-form input, .gb-form select { font-size: 16px; }
+}

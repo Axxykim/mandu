@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>우리 미니홈피 ❤️</title>
+
+  <!-- 홈 화면에 추가 (아이폰) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="우리 미니홈피" />
+  <meta name="theme-color" content="#4a89c7" />
+
+  <!-- 캐시 무효화: 수정할 때마다 ?v=N 숫자를 올리세요 -->
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+<body>
+  <div class="cy-frame">
+
+    <!-- 상단 바 -->
+    <header class="cy-topbar">
+      <span class="cy-logo">cyworld</span>
+      <span class="cy-topbar-menu">미니홈피 | 로그아웃</span>
+    </header>
+
+    <div class="cy-body">
+
+      <!-- 왼쪽: 미니룸 + 프로필 -->
+      <aside class="cy-left">
+        <div class="miniroom">
+          <div class="miniroom-wall"></div>
+          <div class="miniroom-floor"></div>
+          <span class="furni window">🪟</span>
+          <span class="furni frame">🖼️</span>
+          <span class="furni plant">🪴</span>
+          <span class="furni rug">🟫</span>
+          <span class="furni cat">🐱</span>
+          <span class="minimi minimi-1">🧑</span>
+          <span class="minimi minimi-2">👧</span>
+          <span class="heart-float">❤️</span>
+        </div>
+
+        <div class="profile-box">
+          <div class="today-total">
+            <span>TODAY <b id="today">0</b></span>
+            <span>TOTAL <b id="total">∞</b></span>
+          </div>
+          <div class="profile-info">
+            <p class="owner">🏠 <b>우리 둘</b>의 미니홈피</p>
+            <p class="dday-line">사귄 지 <b id="ddayText">D+0</b></p>
+            <ul class="meta">
+              <li>🌰 도토리 <b>9,999</b></li>
+              <li>👥 일촌 <b>2</b></li>
+              <li>📅 <span id="sinceText">since</span></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 오른쪽: 탭 + 내용 -->
+      <main class="cy-right">
+        <nav class="cy-tabs">
+          <a class="tab active" data-tab="home">홈</a>
+          <a class="tab" data-tab="diary">다이어리</a>
+          <a class="tab" data-tab="guestbook">방명록</a>
+        </nav>
+
+        <!-- ===== 홈 ===== -->
+        <div class="tab-panel active" data-panel="home">
+          <!-- 기분 -->
+          <section class="panel">
+            <h2 class="panel-title">😊 오늘의 기분</h2>
+            <div class="mood-rows">
+              <div class="mood-row" data-who="na">
+                <span class="mood-label">🧑 나</span>
+                <span class="mood-current" id="moodNa">-</span>
+                <span class="mood-pick">
+                  <button data-mood="😊">😊</button>
+                  <button data-mood="😢">😢</button>
+                  <button data-mood="😴">😴</button>
+                </span>
+              </div>
+              <div class="mood-row" data-who="jagi">
+                <span class="mood-label">👧 자기야</span>
+                <span class="mood-current" id="moodJagi">-</span>
+                <span class="mood-pick">
+                  <button data-mood="😊">😊</button>
+                  <button data-mood="😢">😢</button>
+                  <button data-mood="😴">😴</button>
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- BGM -->
+          <section class="panel">
+            <h2 class="panel-title">🎵 미니홈피 BGM</h2>
+            <div class="bgm-list" id="bgmList"></div>
+            <div class="bgm-player">
+              <iframe id="bgmFrame" width="100%" height="80" frameborder="0"
+                allow="autoplay; encrypted-media" title="BGM"></iframe>
+            </div>
+          </section>
+
+          <!-- 최근 다이어리 -->
+          <section class="panel">
+            <h2 class="panel-title">📔 최근 다이어리</h2>
+            <div id="recentDiary" class="diary"></div>
+          </section>
+        </div>
+
+        <!-- ===== 다이어리 ===== -->
+        <div class="tab-panel" data-panel="diary">
+          <section class="panel">
+            <h2 class="panel-title">📔 다이어리</h2>
+            <div class="diary-form">
+              <div class="diary-form-row">
+                <select id="diaryName">
+                  <option value="나|🧑">나 🧑</option>
+                  <option value="자기야|👧">자기야 👧</option>
+                </select>
+                <input id="diaryTitle" type="text" maxlength="60" placeholder="제목" />
+              </div>
+              <textarea id="diaryBody" rows="3" maxlength="1000" placeholder="오늘 어땠어? 💬"></textarea>
+              <button id="diarySubmit">일기 쓰기</button>
+            </div>
+            <p id="diaryStatus" class="gb-status"></p>
+            <div id="diary" class="diary"></div>
+            <div id="diarySentinel" class="diary-sentinel"></div>
+          </section>
+        </div>
+
+        <!-- ===== 방명록 ===== -->
+        <div class="tab-panel" data-panel="guestbook">
+          <section class="panel">
+            <h2 class="panel-title">📝 방명록</h2>
+            <div class="gb-form">
+              <select id="gbName">
+                <option value="나|🧑">나 🧑</option>
+                <option value="자기야|👧">자기야 👧</option>
+              </select>
+              <input id="gbText" type="text" maxlength="200" placeholder="메시지를 남겨보세요..." />
+              <button id="gbSubmit">남기기</button>
+            </div>
+            <p id="gbStatus" class="gb-status"></p>
+            <div id="guestbook" class="guestbook"></div>
+          </section>
+        </div>
+
+      </main>
+    </div>
+
+    <footer class="cy-footer">made with ❤️ · 우리 미니홈피</footer>
+  </div>
+
+  <script type="module" src="script.js?v=6"></script>
+</body>
+</html>
