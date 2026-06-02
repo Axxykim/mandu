@@ -69,7 +69,11 @@ body {
   display: flex; align-items: flex-end; justify-content: center;
   gap: 2px; width: 100%; height: 100%; padding: 8px 6px 4px;
 }
-.mandu { width: 50%; height: 100%; }
+.mandu {
+  width: 50%; height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated; /* 픽셀아트 선명하게 */
+}
 .mandu-2 { animation: bob 1.8s ease-in-out infinite; }
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
